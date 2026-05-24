@@ -1,0 +1,44 @@
+const prefixes = [
+"",
+"Un",
+"Duo",
+"Tre",
+"Quattuor",
+"Quin",
+"Sex",
+"Septen",
+"Octo",
+"Noven"
+];
+
+const tens = [
+"",
+"Deci",
+"Viginti",
+"Triginta",
+"Quadraginta",
+"Quinquaginta",
+"Sexaginta",
+"Septuaginta",
+"Octoginta",
+"Nonaginta",
+"Centi"
+];
+
+function getName(index){
+
+    if(index === 0) return "One";
+    if(index === 1) return "Thousand";
+    if(index === 2) return "Million";
+    if(index === 3) return "Billion";
+    if(index === 4) return "Trillion";
+
+    let unit = index % 10;
+    let ten = Math.floor(index / 10);
+
+    if(ten < tens.length){
+        return prefixes[unit] + tens[ten] + "illion";
+    }
+
+    return "E+" + (index * 3);
+}
